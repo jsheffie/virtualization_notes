@@ -46,7 +46,22 @@ Demystifing Docker -
          $
          $ docker run -d -p 8081:80 --name web2 tutum/hello-world
          $ docker run -d -p 8083:80 --name web3 tutum/hello-world
-         $
-         $
-         $
-         $
+         
+        
+         - Workflow for logging into the machine.
+         $ sudo docker attach <name>
+         $ docker exec -i -t <name> /bin/bash
+
+         - Workflow BUILD-RUN-MODIFY-RUN
+         $ docker build -t jsheffie/static_nginx . 
+
+         $ docker stop nginx_jds
+         $ docker rm nginx_jds
+         $ docker build -t jsheffie/static_nginx .
+         $ docker run  -d -p 8081:80 --name nginx_jds jsheffie/static_nginx
+
+         - now push our new image...
+         $ docker push
+         -- https://hub.docker.com/u/jsheffie/
+
+         
