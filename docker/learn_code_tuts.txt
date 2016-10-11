@@ -1,0 +1,52 @@
+
+Demystifing Docker - 
+
+ - #1 Docker Tutorial - What is Docker & Docker Containers, Images, etc?
+      - https://www.youtube.com/watch?v=pGYAg7TMmp0
+
+ - #2 Docker Tutorial - Docker Container Tutorial for Beginners
+      - https://www.youtube.com/watch?v=JBtWxj9l7zM
+
+ - #3 Docker Container Tutorial - How to build a Docker Container & Image
+      - https://www.youtube.com/watch?v=K6WER0oI-qs
+
+      - Install docker ( docker sits on linux ) 
+        OSX && Windows ... install boot2docker
+
+      - OSX Workflow: 
+            $ boot2docker init ( only need to do this once ) 
+            $ boot2docker up
+            $ $(boot2docker shellinit) 
+              -- add this to .bash_profile --
+
+       - EveryOS Workflow
+         $ docker ps -a
+
+           -- Commands:
+              -- docker run <image>
+                    Take a image... create container... start container
+              -- docker start <name|id>
+              -- docker stop <name|id>
+              -- docker ps [ -a include stopped containers ]
+              -- docker rm <name|id> 
+
+         - Workflow for running public containers
+         $ docker login
+         $ docker run tutem/hello-world
+         $ docker run -p 8080:80 --name web1 tutum/hello-world
+           -- great now remove it and run it as a daemon
+         $ docker stop web1
+         $ docker rm web1
+         $ docker ps -a
+
+           daemon-----.
+                       V
+         $ docker run -d -p 8080:80 --name web1 tutum/hello-world
+         $ docker logs web1 --follow
+         $
+         $ docker run -d -p 8081:80 --name web2 tutum/hello-world
+         $ docker run -d -p 8083:80 --name web3 tutum/hello-world
+         $
+         $
+         $
+         $
