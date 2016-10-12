@@ -1,0 +1,22 @@
+case_study_ CentOS 6.8
+
+$ docker pull centos:7
+$ docker info
+$ docker images
+$ docker run --help
+$ docker run -ti centos:7 bash
+
+
+$ mkdir ~/workspace/CentOS; cd ~/workspace/CentOS
+
+$ vi Dockerfile
+	FROM centos:6.8
+
+	RUN yum -y update && yum clean all
+
+	# EXPOSE 80
+	# CMD nginx
+
+$ docker build -t jsheffie/cent .
+$ docker images
+$ docker run -ti jsheffie/cent bash

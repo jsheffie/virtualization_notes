@@ -1,0 +1,16 @@
+case_study_alpine_nginx
+
+$ mkdir ~/workspace/alpine; cd ~/workspace/alpine
+
+$ vi Dockerfile
+	FROM gliderlabs/alpine:3.3
+
+	RUN apk --no-cache add nginx
+
+	EXPOSE 80
+	CMD ["nginx", "-g", "daemon off;"]
+
+$ docker build -t jsheffie/static_nginx .
+$ docker images
+$ docker run -d -p 8088:80 --name alpine jsheffie/alpine
+$ docker exec -i -t alpine /bin/sh
